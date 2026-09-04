@@ -21,31 +21,45 @@ public class Avance1delproyect {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
         double sueldoBase=0;
-        int empleadoTotal=0;
+        int diasTrabajados=0;
+        int faltas=0;
+        double descuento=0;
+        double TotalPagar=0;      
+       
                 
-       //procesa los datos del empleado,programcion basada a objetos 
-        Empleado empleado1 = new Empleado("Daniel", 1000.0);
-        Empleado empleado2 = new Empleado("María", 1500.0);
-        Empleado empleado3 = new Empleado("oscar",2000.0);
-        Empleado empleado4 = new Empleado("meylin",2100.0);
-        Empleado empleado5 = new Empleado("Lisandro",2100.0);
+        System.out.println("Ingrese el sueldo Base: ");
+        sueldoBase=sc.nextDouble();
         
+        System.out.println("Ingrese los dias trabajados: ");
+        diasTrabajados=sc.nextInt();
         
-        System.out.println("Ingrese el numero de trabajadores:");
-        empleadoTotal=sc.nextInt();
+        System.out.println("Ingrese las fatas en la semana:");
+        faltas=sc.nextInt();
         
-        //para repetir el proceso de cada trabajador
-        for (int i = 1; i <= empleadoTotal; i++) {
-             System.out.println("Ingrese su sueldo base:");
-             sueldoBase =sc.nextDouble();
-             System.out.println("ingrese los dias trabajados: ");
-             int diasTrabajados= sc.nextInt();
-             System.out.println("ingrese el nuemero de falta:");
-             int falta=sc.nextInt();
+         sc.nextLine(); // Limpiar buffer
+         
+        descuento=faltas*sueldoBase;
+        TotalPagar=(diasTrabajados*sueldoBase)- descuento;
         
-         }//fin del ciclo for
-            
-        }
+       if(TotalPagar<0)
+           
+        impresionLineaAsterisco();
+        System.out.println("Reporte De Pago Semanal");
+        impresionLineaAsterisco();
+        System.out.println("Sueldo base diario  : Lps. " + sueldoBase);
+        System.out.println("Días trabajados     : " + diasTrabajados);
+        System.out.println("Faltas              : " + faltas);
+        System.out.println("Descuento por faltas: Lps. " + descuento);
+        impresionLineaAsterisco();
+        System.out.println("TOTAL A PAGAR       : Lps. " + TotalPagar);
+       impresionLineaAsterisco();
+        
+    
+     }
+     public static void impresionLineaAsterisco(){
+      System.out.println("*************************************************");
+         
+     }//FIN DE LA FUNCION ImpresionLineaAsterisco
     }
     
 
